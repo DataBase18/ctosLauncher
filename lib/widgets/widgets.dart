@@ -4,3 +4,4 @@ export 'Cargando.dart';
 export 'TextoBorde.dart';
 export 'FechaYHora.dart';
 export 'MiniItem.dart';
+export 'InfoDevice.dart';

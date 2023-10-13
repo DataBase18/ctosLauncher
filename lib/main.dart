@@ -1,3 +1,4 @@
+import 'package:ctoslauncher/screens/AllApps.dart';
 import 'package:ctoslauncher/screens/launcherState.dart';
 import 'package:ctoslauncher/screens/screens.dart';
 import 'package:ctoslauncher/temas/tema.dart';
@@ -33,9 +34,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: Tema.tema,
+      theme: Tema.tema ,
       routes: {
-        "launcher": (_) => LauncherScreen()
+        "launcher": (_) => LauncherScreen(),
+        "allApps": (_) => AllApps()
       },
       initialRoute: "launcher"
     );
