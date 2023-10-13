@@ -1,0 +1,1 @@
+export 'CardHomeModel.dart';
