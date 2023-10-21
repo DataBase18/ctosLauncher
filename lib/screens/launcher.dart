@@ -3,7 +3,9 @@ import 'package:ctoslauncher/screens/launcherLogic.dart';
 import 'package:ctoslauncher/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import '../Constantes.dart';
 import '../models/models.dart';
 import '../temas/tema.dart';
 import 'Notificaciones/Notificaciones.dart';
@@ -38,25 +40,41 @@ class _Home extends StatelessWidget {
   _Home({super.key});
 
   List<CardHomeModel> cards = [
-    CardHomeModel(label: "Wifi", icono: Icons.wifi, validador: logic.validarWifiEncendido()),
-    CardHomeModel(label: "Bluetooth", icono: Icons.bluetooth, validador: logic.validarWifiEncendido()),
-    CardHomeModel(label: "Datos Moviles", icono: Icons.network_cell_outlined, validador: logic.validarWifiEncendido()),
+    CardHomeModel(label: "Red", icono: Icons.wifi, onTap: ()  {
+      logic.abrirAppAction(action: Constantes.wifiConfigAction);
+    }),
+    CardHomeModel(label: "Chrome", icono:FontAwesomeIcons.chrome, onTap: (){
+      logic.abrirAppData(action: Constantes.VIEWAction, data: Constantes.chromeDataUrl);
+    }),
+    CardHomeModel(label: "Ajustes", icono: FontAwesomeIcons.gear, onTap: (){
+      logic.abrirAppAction(action: Constantes.configAppAction);
+    }) ,
+    CardHomeModel(label: "Telefono", icono: FontAwesomeIcons.phone, onTap: (){
+      logic.abrirAppAction(action: Constantes.DIALAction);
+    }),
+    CardHomeModel(label: "Reloj", icono: FontAwesomeIcons.clock, onTap: (){
+      logic.abrirAppPackege(action: Constantes.MAINAction, package: Constantes.relojPackageName );
+    }),
+    CardHomeModel(label: "Galeria", icono: FontAwesomeIcons.photoFilm, onTap: () {
+      logic.abrirAppLauncher(Constantes.galeriaOpenUrl);
+    }),
 
-    CardHomeModel(label: "Chrome", icono:FontAwesomeIcons.chrome),
-    CardHomeModel(label: "Ajustes", icono: FontAwesomeIcons.gear),
-    CardHomeModel(label: "Whatsapp", icono: FontAwesomeIcons.whatsapp),
+    CardHomeModel(label: "CLI", icono: FontAwesomeIcons.terminal, onTap: (){
+      logic.abrirAppPackege(action: Constantes.MAINAction, package: Constantes.cliPackageName);
+    }),
+    CardHomeModel(label: "Musica", icono: FontAwesomeIcons.youtube , onTap: (){
+      logic.abrirAppPackege(action: Constantes.MAINAction, package: Constantes.ytMusicPackageName);
+    }),
+    CardHomeModel(label: "Localizador", icono: FontAwesomeIcons.mapLocationDot, onTap: (){
+      logic.abrirAppData(action: Constantes.VIEWAction, data: 'geo:0,0');
+    }),
 
-    CardHomeModel(label: "Telefono", icono: FontAwesomeIcons.phone),
-    CardHomeModel(label: "Reloj", icono: FontAwesomeIcons.clock),
-    CardHomeModel(label: "Galeria", icono: FontAwesomeIcons.photoFilm),
-
-    CardHomeModel(label: "CLI", icono: FontAwesomeIcons.terminal),
-    CardHomeModel(label: "Musica", icono: FontAwesomeIcons.youtube),
-    CardHomeModel(label: "Localizador", icono: FontAwesomeIcons.mapLocationDot),
-
-    CardHomeModel(label: "Calculadora", icono: FontAwesomeIcons.calculator),
-    CardHomeModel(label: "Camara", icono: FontAwesomeIcons.camera),
-    CardHomeModel(label: "Finanzas", icono: FontAwesomeIcons.moneyBill1Wave),
+    CardHomeModel(label: "Calculadora", icono: FontAwesomeIcons.calculator, onTap: (){
+      logic.abrirAppPackege(action: Constantes.MAINAction, package: Constantes.calcProPackageName);
+    }),
+    CardHomeModel(label: "Camara", icono: FontAwesomeIcons.camera, onTap: (){
+      logic.abrirAppAction(action: Constantes.camaraAppAction);
+    }),
 
   ];
   @override
@@ -90,6 +108,7 @@ class _Home extends StatelessWidget {
                     label: cards[index].label,
                     icono: cards[index].icono,
                     validador: cards[index].validador,
+                    onTab: cards[index].onTap,
                   );
                 },
               ),

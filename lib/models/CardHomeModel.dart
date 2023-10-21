@@ -7,5 +7,5 @@ class CardHomeModel {
   final Future<bool>? validador;
   final Function? onTap;
 
-  CardHomeModel({required this.label, required this.icono, this.validador, this.onTap});
+  CardHomeModel({required this.label, required this.icono, this.validador, this.onTap, });
 }
