@@ -5,8 +5,8 @@ class Tema {
     primaryColor: const Color(0xFF111E26),
     secondaryHeaderColor: const Color(0xFF66F2F2),
     disabledColor: const Color(0xFFB3B2B4),
-    cardTheme: const CardTheme (
-      color:  Color(0xFF3B3B3E ),
+    cardTheme: const CardThemeData(
+      color: Color(0xFF3B3B3E )
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(

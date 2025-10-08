@@ -6,7 +6,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:ctoslauncher/widgets/widgets.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_blue/flutter_blue.dart';
+// import 'package:flutter_blue/flutter_blue.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -45,15 +45,15 @@ class _CardHomeState extends State<CardHome> {
       });
     });
 
-    FlutterBlue.instance.state.listen((state) {
-      setState(() {
-        if(state == BluetoothState.on){
-          bluetoothEncendido=true;
-        }else if(state == BluetoothState.off){
-          bluetoothEncendido=false;
-        }
-      });
-    });
+    // FlutterBlue.instance.state.listen((state) {
+    //   setState(() {
+    //     if(state == BluetoothState.on){
+    //       bluetoothEncendido=true;
+    //     }else if(state == BluetoothState.off){
+    //       bluetoothEncendido=false;
+    //     }
+    //   });
+    // });
   }
 
   @override
